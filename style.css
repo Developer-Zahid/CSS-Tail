@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+
+.tail{
+    --_height: 4rem;
+    --_deg: 10deg;
+    --_color: rgb(0, 0, 0);
+    position: relative;
+
+    .tail_bone{
+        position: absolute;
+        height: var(--_height);
+        aspect-ratio: 1/2;
+        border-radius: 50em;
+        outline: 1px solid var(--_color);
+        background-color: var(--_color);
+        transform-origin: 50% calc((var(--_height) / 4));
+        top: calc((var(--_height) / 2));
+        animation: move 3s linear infinite;
+        
+    }
+
+    > *:first-child{
+        top: 0;
+    }
+}
+
+@keyframes move {
+    0%, 100%{
+        transform: rotate(0deg);
+    }
+    35%{
+        transform: rotate(var(--_deg));
+    }
+    75%{
+        transform: rotate(calc(var(--_deg) * -1));
+    }
+}
